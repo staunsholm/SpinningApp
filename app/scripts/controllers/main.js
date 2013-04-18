@@ -1,25 +1,9 @@
 'use strict';
 
 angular.module('SpinningApp')
-    .controller('MainCtrl', function ($scope, $location)
+    .controller('MainCtrl', function ($scope, $location, Sessions)
     {
-        $scope.favoriteSessions = [
-            {
-                id: 1,
-                title: 'Test Title',
-                length: 100000
-            },
-            {
-                id: 2,
-                title: 'Spin \'till you die',
-                length: 200000
-            },
-            {
-                id: 3,
-                title: 'Speed, climb and sprint',
-                length: 300000
-            }
-        ];
+        $scope.sessions = Sessions.getSessions();
 
         $scope.play = function(id)
         {
@@ -27,4 +11,5 @@ angular.module('SpinningApp')
         }
     })
 
-    .$inject = ['$location'];
+    .$inject = ['$location','Sessions'];
+

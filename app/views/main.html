@@ -5,7 +5,7 @@
 <h2>Suggested Sessions</h2>
 
 <table>
-    <tr ng-repeat="session in favoriteSessions"
+    <tr ng-repeat="session in sessions | filter:favorite=true"
         ng-click="play(session.id)">
         <td>{{session.title}}</td>
         <td>{{session.length | date:'hh:mm'}}</td>

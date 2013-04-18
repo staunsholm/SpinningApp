@@ -5,10 +5,8 @@ angular.module('SpinningApp')
     {
         $scope.navigateTo = function(path)
         {
-            console.log(path);
             $location.path(path);
         }
     })
 
     .$inject = ['$location'];
-
