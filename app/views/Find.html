@@ -1,3 +1,11 @@
 <div spin-menu></div>
 
-<p>This is the Find view.</p>
+<h2>All Sessions</h2>
+
+<table>
+    <tr ng-repeat="session in sessions"
+        ng-click="play(session.id)">
+        <td>{{session.title}}</td>
+        <td>{{session.length | date:'hh:mm'}}</td>
+    </tr>
+</table>
