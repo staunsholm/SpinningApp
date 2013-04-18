@@ -1,2 +1,13 @@
 <div spin-menu></div>
 
+<h1>Spinning</h1>
+
+<h2>Suggested Sessions</h2>
+
+<table>
+    <tr ng-repeat="session in favoriteSessions"
+        ng-click="play(session.id)">
+        <td>{{session.title}}</td>
+        <td>{{session.length | date:'hh:mm'}}</td>
+    </tr>
+</table>

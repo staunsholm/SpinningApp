@@ -16,6 +16,10 @@ angular.module('SpinningApp', [])
               templateUrl: 'views/Find.html',
               controller: 'FindCtrl'
             })
+            .when('/play/:id', {
+              templateUrl: 'views/Play.html',
+              controller: 'PlayCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });
