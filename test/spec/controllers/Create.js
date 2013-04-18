@@ -1,22 +1,25 @@
 'use strict';
 
-describe('Controller: CreateCtrl', function () {
+describe('Controller: CreateCtrl', function ()
+{
 
-  // load the controller's module
-  beforeEach(module('SpinningApp'));
+    // load the controller's module
+    beforeEach(module('SpinningApp'));
 
-  var CreateCtrl,
-    scope;
+    var CreateCtrl,
+        scope;
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    CreateCtrl = $controller('CreateCtrl', {
-      $scope: scope
+    // Initialize the controller and a mock scope
+    beforeEach(inject(function ($controller, $rootScope)
+    {
+        scope = $rootScope.$new();
+        CreateCtrl = $controller('CreateCtrl', {
+            $scope: scope
+        });
+    }));
+
+    it('should contain a menu of 3 elements', function ()
+    {
+        expect(scope.awesomeThings.length).toBe(4);
     });
-  }));
-
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
-  });
 });

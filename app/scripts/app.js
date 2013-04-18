@@ -5,12 +5,16 @@ angular.module('SpinningApp', [])
     {
         $routeProvider
             .when('/', {
-                templateUrl: 'views/main.html',
+                templateUrl: 'views/Main.html',
                 controller: 'MainCtrl'
             })
-            .when('/Create', {
+            .when('/create', {
               templateUrl: 'views/Create.html',
               controller: 'CreateCtrl'
+            })
+            .when('/find', {
+              templateUrl: 'views/Find.html',
+              controller: 'FindCtrl'
             })
             .otherwise({
                 redirectTo: '/'
