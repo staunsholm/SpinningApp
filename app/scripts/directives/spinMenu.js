@@ -5,7 +5,7 @@ angular.module('SpinningApp')
     {
         return {
             templateUrl: 'views/spinMenu.html',
-            restrict: 'A',
+            restrict: 'E',
             controller: 'SpinMenuCtrl'
         };
     });

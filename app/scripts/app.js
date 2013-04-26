@@ -1,5 +1,10 @@
 'use strict';
 
+window.addEventListener('load', function ()
+{
+    new FastClick(document.body);
+}, false);
+
 angular.module('SpinningApp', [])
     .config(function ($routeProvider)
     {
@@ -9,16 +14,16 @@ angular.module('SpinningApp', [])
                 controller: 'MainCtrl'
             })
             .when('/create', {
-              templateUrl: 'views/Create.html',
-              controller: 'CreateCtrl'
+                templateUrl: 'views/Create.html',
+                controller: 'CreateCtrl'
             })
             .when('/find', {
-              templateUrl: 'views/Find.html',
-              controller: 'FindCtrl'
+                templateUrl: 'views/Find.html',
+                controller: 'FindCtrl'
             })
             .when('/play/:id', {
-              templateUrl: 'views/Play.html',
-              controller: 'PlayCtrl'
+                templateUrl: 'views/Play.html',
+                controller: 'PlayCtrl'
             })
             .otherwise({
                 redirectTo: '/'

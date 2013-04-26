@@ -1,3 +1,37 @@
-<div spin-menu></div>
+<spin-menu />
 
-<p>This is the Create view.</p>
+<div class="search">
+    <input type="search" placeholder="Track, artist, album, ...">
+
+    <div ng-repeat="track in tracks"
+         style="background-image:url({{track.image}})">
+        <h3>{{track.name}}</h3>
+        {{track.artist}}
+        <button ng-click="playTrack(track)">Play</button>
+        <button ng-click="stopPlaying(track)">Stop</button>
+
+        <label>Start:</label>
+        <input type="range" ng-model="track.startTime" min="0" max="100">
+        <label>End:</label>
+        <input type="range" ng-model="track.endTime" min="0" max="100">
+
+        <button ng-click="addTrack(track)">Add to session</button>
+    </div>
+</div>
+
+<ul class="session">
+    <li ng-repeat="clip in session">
+        <h3>{{clip.track.name}}</h3>
+        {{clip.track.artist}}
+        <button ng-click="playTrack(clip.track)">Play</button>
+        <button ng-click="stopPlaying(clip.track)">Stop</button>
+
+        <div class="startTime">
+            Start: {{clip.startTime}}
+        </div>
+        <div class="endTime">
+            End: {{clip.endTime}}
+        </div>
+    </li>
+</ul>
+
