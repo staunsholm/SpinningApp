@@ -1,23 +1,37 @@
 <spin-menu></spin-menu>
 
 <div class="search">
-    <input type="search" ng-model="query" placeholder="Track, artist, album, ...">
-    <button ng-click="doSearch()">Search</button>
+    <form ng-submit="doSearch()">
+        <input type="search" ng-model="query" placeholder="Track, artist, album, ...">
+        <button>Search</button>
+    </form>
 
-    <div ng-repeat="track in searchResult.tracks"
-         style="background-image:url({{track.image}})">
-        <h3>Name: {{track.name}}</h3>
-        Artist: {{track.artist}}
-        <button ng-click="playTrack(track)">Play</button>
-        <button ng-click="pauseTrack()">Pause</button>
-        <button ng-click="stopTrack()">Stop</button>
+    <div ng-repeat="track in tracks"
+         style="background-image:url({{track.image}})"
+         class="track">
+        <div>
+            <h3>Name: {{track.name}}</h3>
+            <h4>Artist: {{track.artists[0].name}}</h4>
 
-        <label>Start:</label>
-        <input type="range" ng-model="track.startTime" min="0" max="100">
-        <label>End:</label>
-        <input type="range" ng-model="track.endTime" min="0" max="100">
+            <div class="controls">
+                <button ng-click="playTrack(track)">&gt;</button>
+                <button ng-click="pauseTrack()">||</button>
+                <button ng-click="stopTrack()">.</button>
+            </div>
 
-        <button ng-click="addTrack(track)">Add to session</button>
+            <div class="startTime">
+                <label for="startTime">Start:</label>
+                <input type="range" ng-model="track.startTime" id="startTime" min="0" max="{{track.duration}}">
+                {{track.startTime | date:'mm:ss'}}
+            </div>
+            <div class="endTime">
+                <label for="endTime">End:</label>
+                <input type="range" ng-model="track.endTime" id="endTime" min="0" max="{{track.duration}}">
+                {{track.endTime | date:'mm:ss'}}
+            </div>
+
+            <button ng-click="addTrack(track)" class="addToSession">+</button>
+        </div>
     </div>
 </div>
 

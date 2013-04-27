@@ -8,3 +8,41 @@ body {
     margin: 10px;
     height: 2000px;
 }
+
+.track {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+    margin-bottom: 5px;
+
+    >div {
+        background-color: rgba(0,0,0,.5);
+        padding: 10px;
+    }
+
+    .controls {
+
+    }
+
+    label {
+        width: 15%;
+        display: inline-block;
+    }
+    input[type=range] {
+        width: 65%;
+    }
+
+    h3 {
+        margin: 0;
+    }
+
+    h4 {
+        margin: 0;
+    }
+
+    .addToSession {
+        position: absolute;
+        top: 30px;
+        right: 10px;
+    }
+}
