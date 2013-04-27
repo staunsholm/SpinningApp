@@ -1,14 +1,16 @@
-<spin-menu />
+<spin-menu></spin-menu>
 
 <div class="search">
-    <input type="search" placeholder="Track, artist, album, ...">
+    <input type="search" ng-model="query" placeholder="Track, artist, album, ...">
+    <button ng-click="doSearch()">Search</button>
 
-    <div ng-repeat="track in tracks"
+    <div ng-repeat="track in searchResult.tracks"
          style="background-image:url({{track.image}})">
-        <h3>{{track.name}}</h3>
-        {{track.artist}}
+        <h3>Name: {{track.name}}</h3>
+        Artist: {{track.artist}}
         <button ng-click="playTrack(track)">Play</button>
-        <button ng-click="stopPlaying(track)">Stop</button>
+        <button ng-click="pauseTrack()">Pause</button>
+        <button ng-click="stopTrack()">Stop</button>
 
         <label>Start:</label>
         <input type="range" ng-model="track.startTime" min="0" max="100">
