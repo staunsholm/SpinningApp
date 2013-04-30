@@ -66,8 +66,15 @@ angular.module('SpinningApp')
                 });
             },
 
-            playTrack: function (track, startTime)
+            playTrack: function (track, startTime, endTime)
             {
+                if (typeof(track) === "string")
+                {
+                    var track = models.Track.fromURI(track);
+                    track.startTime = startTime;
+                    track.endTime = endTime;
+                }
+
                 currentTrack = track;
                 models.player.playTrack(track);
                 models.player.seek(track.startTime);

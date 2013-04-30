@@ -1,53 +1,83 @@
 <spin-menu></spin-menu>
 
+<nav class="createFlow">
+    <button class="current">Choose Songs</button>
+    <button>Mix SpinList</button>
+    <button>Add Voice</button>
+    <button>Finishing Touches</button>
+</nav>
+
 <div class="search">
     <form ng-submit="doSearch()">
-        <input type="search" ng-model="query" placeholder="Track, artist, album, ...">
-        <button>Search</button>
+        <label for="query">Search:</label>
+        <input type="search" id="query" ng-model="query" placeholder="Track, artist, album, ...">
     </form>
 
-    <div ng-repeat="track in tracks"
-         style="background-image:url({{track.image}})"
-         class="track">
+    <div class="searchResult">
+        <div ng-repeat="track in tracks"
+             style="background-image:url({{track.image}})"
+             class="track">
+            <div>
+                <h3>Name: {{track.name}}</h3>
+                <h4>Artist: {{track.artists[0].name}}</h4>
+
+                <div class="controls">
+                    <button ng-click="playTrack(track)">&gt;</button>
+                    <button ng-click="pauseTrack()">||</button>
+                    <button ng-click="stopTrack()">.</button>
+                </div>
+
+                <div class="startTime">
+                    <label for="startTime">Start:</label>
+                    <input type="range" ng-model="track.startTime" id="startTime" min="0" max="{{track.duration}}">
+                    {{track.startTime | date:'m:ss'}}
+                </div>
+                <div class="endTime">
+                    <label for="endTime">End:</label>
+                    <input type="range" ng-model="track.endTime" id="endTime" min="0" max="{{track.duration}}">
+                    {{track.endTime | date:'m:ss'}}
+                </div>
+
+                <button ng-click="addTrack(track)" class="addToSession">+</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="session">
+    <!--<input type="text" ng-model="session.title" placeholder="Session title">
+    <h4>Length: {{session.length | date:'m:ss'}}</h4>
+    <button ng-click="playSession()">Play session</button>-->
+
+    <div ng-repeat="part in session.parts" class="track"
+         style="background-image:url({{part.image}})">
         <div>
-            <h3>Name: {{track.name}}</h3>
-            <h4>Artist: {{track.artists[0].name}}</h4>
+            <h3>{{part.song}}</h3>
+            <h4>{{part.artist}}</h4>
 
             <div class="controls">
-                <button ng-click="playTrack(track)">&gt;</button>
+                <button ng-click="playTrack(part.spotifyId, part.startTime, part.endTime)">&gt;</button>
                 <button ng-click="pauseTrack()">||</button>
                 <button ng-click="stopTrack()">.</button>
             </div>
 
             <div class="startTime">
-                <label for="startTime">Start:</label>
-                <input type="range" ng-model="track.startTime" id="startTime" min="0" max="{{track.duration}}">
-                {{track.startTime | date:'mm:ss'}}
+                <label for="startTimePart">Start:</label>
+                <input type="range" ng-model="part.startTime" id="startTimePart" min="0" max="{{part.duration}}">
+                {{part.startTime | date:'m:ss'}}
             </div>
             <div class="endTime">
-                <label for="endTime">End:</label>
-                <input type="range" ng-model="track.endTime" id="endTime" min="0" max="{{track.duration}}">
-                {{track.endTime | date:'mm:ss'}}
+                <label for="endTimePart">End:</label>
+                <input type="range" ng-model="part.endTime" id="endTimePart" min="0" max="{{part.duration}}">
+                {{part.endTime | date:'m:ss'}}
             </div>
 
-            <button ng-click="addTrack(track)" class="addToSession">+</button>
+            <button ng-click="removeTrack(part)" class="addToSession">-</button>
         </div>
     </div>
+
+    <div class="spacer"></div>
+
 </div>
 
-<ul class="session">
-    <li ng-repeat="clip in session">
-        <h3>{{clip.track.name}}</h3>
-        {{clip.track.artist}}
-        <button ng-click="playTrack(clip.track)">Play</button>
-        <button ng-click="stopPlaying(clip.track)">Stop</button>
-
-        <div class="startTime">
-            Start: {{clip.startTime}}
-        </div>
-        <div class="endTime">
-            End: {{clip.endTime}}
-        </div>
-    </li>
-</ul>
-
+<button class="nextButton">Mix SpinList</button>

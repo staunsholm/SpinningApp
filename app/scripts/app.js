@@ -5,7 +5,7 @@ window.addEventListener('load', function ()
     new FastClick(document.body);
 }, false);
 
-angular.module('SpinningApp', [])
+angular.module('SpinningApp', ['firebase'])
     .config(function ($routeProvider)
     {
         $routeProvider
