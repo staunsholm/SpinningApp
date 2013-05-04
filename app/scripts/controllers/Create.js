@@ -1,11 +1,31 @@
 'use strict';
 
 angular.module('SpinningApp')
-    .controller('CreateCtrl', function ($scope, Sessions, Spotify)
+    .controller('CreateCtrl', function ($scope, $location, $routeParams, Sessions, Spotify)
     {
         Utils.moveBackground(2);
 
-        $scope.session = Sessions.createSession();
+        $scope.Spotify = Spotify;
+
+        $scope.sessionId = $routeParams.id;
+
+        if (!$scope.sessionId)
+        {
+            // create new session
+            $scope.session = Sessions.createSession();
+        }
+        else
+        {
+            // get existing session
+            (function getSession()
+            {
+                $scope.session = Sessions.getSession($scope.sessionId);
+                if (!$scope.session)
+                {
+                    $timeout(getSession, 100);
+                }
+            })();
+        }
 
         $scope.query = 'James Blake';
         $scope.tracks = [];
@@ -29,21 +49,6 @@ angular.module('SpinningApp')
                     $scope.$apply();
                 }
             });
-        };
-
-        $scope.playTrack = function(track, startTime, endTime)
-        {
-            Spotify.playTrack(track, startTime, endTime);
-        };
-
-        $scope.stopTrack = function()
-        {
-            Spotify.stopTrack();
-        };
-
-        $scope.pauseTrack = function()
-        {
-            Spotify.pauseTrack();
         };
 
         $scope.addTrack = function(track)
@@ -74,4 +79,4 @@ angular.module('SpinningApp')
         }
     })
 
-    .$inject = ['Sessions', 'Spotify'];
+    .$inject = ['$location', '$routeParams', 'Sessions', 'Spotify'];

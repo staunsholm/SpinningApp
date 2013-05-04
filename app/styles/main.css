@@ -70,22 +70,22 @@ input[type=search]::-webkit-input-placeholder {
 
 .menu button {
   color: #333;
-  background-color: #ccc;
+  background-color: rgba(255, 255, 255, 0.5);
   padding: 10px 20px; }
 .menu button.current {
-  background-color: #fff; }
+  background-color: rgba(255, 255, 255, 0.9); }
 
 .createFlow button {
   color: #333;
-  background-color: #cc0;
+  background-color: rgba(255, 255, 0, 0.5);
   padding: 20px 40px; }
 .createFlow button.current {
-  background-color: #ff0; }
+  background-color: rgba(255, 255, 0, 0.9); }
 
 .search {
   height: 50%; }
   .search form input[type=search] {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
     color: #333;
     padding: 20px 4px;
     font-size: 120%;
@@ -93,7 +93,7 @@ input[type=search]::-webkit-input-placeholder {
   .search form label {
     display: none; }
   .search .searchResult {
-    background-color: #ccc;
+    background-color: rgba(200, 200, 200, 0.5);
     color: #333;
     padding: 5px;
     overflow-x: hidden;
@@ -101,7 +101,7 @@ input[type=search]::-webkit-input-placeholder {
 
 .session {
   height: 50%;
-  background-color: #dfa;
+  background-color: rgba(220, 255, 200, 0.5);
   color: #333;
   padding: 5px;
   overflow-x: hidden; }

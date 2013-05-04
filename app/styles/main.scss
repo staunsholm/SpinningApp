@@ -97,22 +97,22 @@ input[type=search]::-webkit-input-placeholder {
 .menu {
     button {
         color: #333;
-        background-color: #ccc;
+        background-color: rgba(255,255,255,.5);
         padding: 10px 20px;
     }
     button.current {
-        background-color: #fff;
+        background-color: rgba(255,255,255,0.9);
     }
 }
 
 .createFlow {
     button {
         color: #333;
-        background-color: #cc0;
+        background-color: rgba(255,255,0,.5);
         padding: 20px 40px;
     }
     button.current {
-        background-color: #ff0;
+        background-color: rgba(255,255,0,.9);
     }
 }
 
@@ -121,7 +121,7 @@ input[type=search]::-webkit-input-placeholder {
 
     form {
         input[type=search] {
-            background-color: #fff;
+            background-color: rgba(255,255,255,.9);
             color: #333;
             padding: 20px 4px;
             font-size: 120%;
@@ -133,7 +133,7 @@ input[type=search]::-webkit-input-placeholder {
     }
 
     .searchResult {
-        background-color: #ccc;
+        background-color: rgba(200,200,200,.5);
         color: #333;
         padding: 5px;
         overflow-x: hidden;
@@ -144,7 +144,7 @@ input[type=search]::-webkit-input-placeholder {
 .session {
     height: 50%;
 
-    background-color: #dfa;
+    background-color: rgba(220,255,200,.5);
     color: #333;
     padding: 5px;
     overflow-x: hidden;

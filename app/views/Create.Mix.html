@@ -1,0 +1,41 @@
+<spin-menu></spin-menu>
+
+<spin-create-flow></spin-create-flow>
+
+<div class="session">
+    <!--<input type="text" ng-model="session.title" placeholder="Session title">
+    <h4>Length: {{session.length | date:'m:ss'}}</h4>
+    <button ng-click="playSession()">Play session</button>-->
+
+    <div ng-repeat="part in session.parts" class="track"
+         style="background-image:url({{part.image}})">
+        <div>
+            <h3>{{part.song}}</h3>
+            <h4>{{part.artist}}</h4>
+
+            <div class="controls">
+                <button ng-click="Spotify.playTrack(part.spotifyId, part.startTime, part.endTime)">&gt;</button>
+                <button ng-click="Spotify.pauseTrack()">||</button>
+                <button ng-click="Spotify.stopTrack()">.</button>
+            </div>
+
+            <div class="startTime">
+                <label for="startTimePart">Start:</label>
+                <input type="range" ng-model="part.startTime" id="startTimePart" min="0" max="{{part.duration}}">
+                {{part.startTime | date:'m:ss'}}
+            </div>
+            <div class="endTime">
+                <label for="endTimePart">End:</label>
+                <input type="range" ng-model="part.endTime" id="endTimePart" min="0" max="{{part.duration}}">
+                {{part.endTime | date:'m:ss'}}
+            </div>
+
+            <button ng-click="removeTrack(part)" class="addToSession">-</button>
+        </div>
+    </div>
+
+    <div class="spacer"></div>
+
+</div>
+
+<button class="nextButton">Add Voice</button>

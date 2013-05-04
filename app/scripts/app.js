@@ -1,5 +1,6 @@
 'use strict';
 
+// TODO: fast click after every page change (dom update)
 window.addEventListener('load', function ()
 {
     new FastClick(document.body);
@@ -13,10 +14,20 @@ angular.module('SpinningApp', ['firebase'])
                 templateUrl: 'views/Main.html',
                 controller: 'MainCtrl'
             })
+
             .when('/create', {
                 templateUrl: 'views/Create.html',
                 controller: 'CreateCtrl'
             })
+            .when('/create/:id', {
+                templateUrl: 'views/Create.html',
+                controller: 'CreateCtrl'
+            })
+            .when('/create/:id/mix', {
+                templateUrl: 'views/Create.Mix.html',
+                controller: 'CreateMixCtrl'
+            })
+
             .when('/find', {
                 templateUrl: 'views/Find.html',
                 controller: 'FindCtrl'
@@ -28,4 +39,18 @@ angular.module('SpinningApp', ['firebase'])
             .otherwise({
                 redirectTo: '/'
             });
+    })
+
+    .run(function ($rootScope, $location, $routeParams)
+    {
+        $rootScope.navigateTo = function (path)
+        {
+            console.log("Navigating to: " + path);
+            $location.path(path);
+        };
+
+        $rootScope.currentPathClass = function (path)
+        {
+            return path == $location.$$path ? 'current' : '';
+        }
     });

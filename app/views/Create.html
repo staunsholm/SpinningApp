@@ -1,11 +1,6 @@
 <spin-menu></spin-menu>
 
-<nav class="createFlow">
-    <button class="current">Choose Songs</button>
-    <button>Mix SpinList</button>
-    <button>Add Voice</button>
-    <button>Finishing Touches</button>
-</nav>
+<spin-create-flow></spin-create-flow>
 
 <div class="search">
     <form ng-submit="doSearch()">
@@ -22,9 +17,9 @@
                 <h4>Artist: {{track.artists[0].name}}</h4>
 
                 <div class="controls">
-                    <button ng-click="playTrack(track)">&gt;</button>
-                    <button ng-click="pauseTrack()">||</button>
-                    <button ng-click="stopTrack()">.</button>
+                    <button ng-click="Spotify.playTrack(track)">&gt;</button>
+                    <button ng-click="Spotify.pauseTrack()">||</button>
+                    <button ng-click="Spotify.stopTrack()">.</button>
                 </div>
 
                 <div class="startTime">
@@ -56,9 +51,9 @@
             <h4>{{part.artist}}</h4>
 
             <div class="controls">
-                <button ng-click="playTrack(part.spotifyId, part.startTime, part.endTime)">&gt;</button>
-                <button ng-click="pauseTrack()">||</button>
-                <button ng-click="stopTrack()">.</button>
+                <button ng-click="Spotify.playTrack(part.spotifyId, part.startTime, part.endTime)">&gt;</button>
+                <button ng-click="Spotify.pauseTrack()">||</button>
+                <button ng-click="Spotify.stopTrack()">.</button>
             </div>
 
             <div class="startTime">
@@ -80,4 +75,8 @@
 
 </div>
 
-<button class="nextButton">Mix SpinList</button>
+<button class="nextButton"
+        ng-click="navigateTo('/create/' + session.id +'/mix')"
+        ng-show="session.parts.length > 0">
+    Mix SpinList
+</button>

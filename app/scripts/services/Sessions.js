@@ -3,7 +3,7 @@
 angular.module('SpinningApp')
     .factory('Sessions', ['$rootScope', 'angularFire', function ($rootScope, angularFire)
     {
-        var sessions;
+        var sessions = [];
 
         var firebaseUrl = 'https://spinningapp.firebaseio.com/sessions';
         angularFire(firebaseUrl, $rootScope, 'sessions')
@@ -114,6 +114,6 @@ angular.module('SpinningApp')
                 }
 
                 calculateSessionLength(session);
-            },
+            }
         };
     }]);

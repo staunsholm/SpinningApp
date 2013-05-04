@@ -1,0 +1,7 @@
+<div style="background:red;color:white;">sessionId: {{sessionId}}</div>
+<nav class="createFlow">
+    <button ng-click="navigateTo('/create/' + sessionId)" class="{{currentPathClass('/create/' + sessionId)}}">Choose Songs</button>
+    <button ng-click="navigateTo('/create/' + sessionId + '/mix')" class="{{currentPathClass('/create/' + sessionId + '/mix')}}">Mix SpinList</button>
+    <button ng-click="navigateTo('/create/' + sessionId + '/add')" class="{{currentPathClass('/create/' + sessionId + '/add')}}">Add Voice</button>
+    <button ng-click="navigateTo('/create/' + sessionId + '/finish')" class="{{currentPathClass('/create/' + sessionId + '/finish')}}">Finishing Touches</button>
+</nav>
