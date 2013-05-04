@@ -7,6 +7,10 @@ angular.module('SpinningApp')
         {
             $location.path(path);
         };
+
+        $scope.isCurrent = function(path) {
+            return path == $location.$$path ? 'current' : '';
+        }
     })
 
     .$inject = ['$location'];

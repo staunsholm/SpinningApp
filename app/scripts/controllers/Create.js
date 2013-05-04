@@ -3,6 +3,8 @@
 angular.module('SpinningApp')
     .controller('CreateCtrl', function ($scope, Sessions, Spotify)
     {
+        Utils.moveBackground(2);
+
         $scope.session = Sessions.createSession();
 
         $scope.query = 'James Blake';

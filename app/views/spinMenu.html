@@ -1,5 +1,5 @@
 <nav class="menu">
-    <button ng-click="navigateTo('/')">My SpinLists</button>
-    <button ng-click="navigateTo('/find')">Find SpinLists</button>
-    <button ng-click="navigateTo('/create')" class="current">Create New SpinList</button>
+    <button ng-click="navigateTo('/')" class="{{isCurrent('/')}}">My SpinLists</button>
+    <button ng-click="navigateTo('/find')" class="{{isCurrent('/find')}}">Find SpinLists</button>
+    <button ng-click="navigateTo('/create')" class="{{isCurrent('/create')}}">Create New SpinList</button>
 </nav>
