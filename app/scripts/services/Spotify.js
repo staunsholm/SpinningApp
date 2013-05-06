@@ -21,6 +21,7 @@ angular.module('SpinningApp')
         }
 
         var models, Location, Search, TopList, buttons, List, Image;
+        if (!typeof(require) !== "object") return;
         require([
             '$api/models',
             '$api/location#Location',

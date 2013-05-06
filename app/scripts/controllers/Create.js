@@ -8,6 +8,7 @@ angular.module('SpinningApp')
         $scope.Spotify = Spotify;
 
         $scope.sessionId = $routeParams.id;
+        console.log($scope.sessionId);
 
         if (!$scope.sessionId)
         {

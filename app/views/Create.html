@@ -22,17 +22,6 @@
                     <button ng-click="Spotify.stopTrack()">.</button>
                 </div>
 
-                <div class="startTime">
-                    <label for="startTime">Start:</label>
-                    <input type="range" ng-model="track.startTime" id="startTime" min="0" max="{{track.duration}}">
-                    {{track.startTime | date:'m:ss'}}
-                </div>
-                <div class="endTime">
-                    <label for="endTime">End:</label>
-                    <input type="range" ng-model="track.endTime" id="endTime" min="0" max="{{track.duration}}">
-                    {{track.endTime | date:'m:ss'}}
-                </div>
-
                 <button ng-click="addTrack(track)" class="addToSession">+</button>
             </div>
         </div>
@@ -56,18 +45,7 @@
                 <button ng-click="Spotify.stopTrack()">.</button>
             </div>
 
-            <div class="startTime">
-                <label for="startTimePart">Start:</label>
-                <input type="range" ng-model="part.startTime" id="startTimePart" min="0" max="{{part.duration}}">
-                {{part.startTime | date:'m:ss'}}
-            </div>
-            <div class="endTime">
-                <label for="endTimePart">End:</label>
-                <input type="range" ng-model="part.endTime" id="endTimePart" min="0" max="{{part.duration}}">
-                {{part.endTime | date:'m:ss'}}
-            </div>
-
-            <button ng-click="removeTrack(part)" class="addToSession">-</button>
+            <button ng-click="removeTrack(part)" class="removeFromSession">-</button>
         </div>
     </div>
 
