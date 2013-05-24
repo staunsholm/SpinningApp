@@ -1,6 +1,6 @@
 <div class="bike"></div>
 
-<div class="sessions prettyprint">
+<div class="sessions">
     <ul style="width:{{sessions.length*210}}px">
         <li ng-repeat="session in sessions | filter:favorite=true"
             ng-click="play(session.id)">

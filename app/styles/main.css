@@ -148,14 +148,21 @@ input[type=search]::-webkit-input-placeholder {
   background-size: 500px 352px;
   width: 100%;
   height: 352px; }
+  .bike.small {
+    background-size: cover;
+    width: 50px;
+    height: 35.2px;
+    float: right; }
 
 ::-webkit-scrollbar {
-  height: 8px; }
+  height: 8px;
+  width: 8px; }
 
 ::-webkit-scrollbar-thumb:horizontal,
 ::-webkit-scrollbar-thumb:vertical {
   background: rgba(255, 0, 0, 0.8);
-  min-width: 50px; }
+  min-width: 50px;
+  min-height: 50px; }
 
 ::-webkit-scrollbar-corner:horizontal,
 ::-webkit-scrollbar-button:horizontal,
@@ -167,14 +174,14 @@ input[type=search]::-webkit-input-placeholder {
 
 .sessions {
   width: 100%;
-  height: 208px;
-  overflow-x: auto; }
+  height: 218px;
+  overflow: auto; }
   .sessions ul {
     list-style-type: none; }
   .sessions li {
     float: left;
     padding: 10px;
-    margin-right: 10px;
+    margin: 10px 10px 0 0;
     width: 200px;
     height: 200px;
     background-color: rgba(0, 0, 0, 0.6);
@@ -183,6 +190,8 @@ input[type=search]::-webkit-input-placeholder {
     transition: background-color 0.3s; }
   .sessions li:hover {
     background-color: black; }
+  .sessions.all {
+    height: 100%; }
 
 .allSessions {
   display: block;
@@ -208,3 +217,8 @@ button {
   text-align: center;
   width: 100%;
   margin: 50px 0; }
+
+.filterInput {
+  display: block;
+  width: 50%;
+  margin: 0 auto; }
