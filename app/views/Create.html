@@ -5,7 +5,7 @@
 <div class="search">
     <form ng-submit="doSearch()">
         <label for="query">Search:</label>
-        <input type="search" id="query" ng-model="query" placeholder="Track, artist, album, ...">
+        <input type="search" id="query" ng-model="query" ng-change="doSearch()" placeholder="Track, artist, album, ...">
     </form>
 
     <div class="searchResult">

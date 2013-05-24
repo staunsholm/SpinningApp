@@ -6,6 +6,10 @@ angular.module('SpinningApp')
         var currentTrack;
         var searchResult;
         var playingStartTime;
+        var latestSearch = {
+            time: Date.now(),
+            query: ''
+        };
 
         // register when track should stop
         $timeout(handleStopTime, 200);
@@ -21,7 +25,7 @@ angular.module('SpinningApp')
         }
 
         var models, Location, Search, TopList, buttons, List, Image;
-        if (!typeof(require) !== "object") return;
+        if (!typeof(require) === undefined) return {};
         require([
             '$api/models',
             '$api/location#Location',
@@ -71,7 +75,7 @@ angular.module('SpinningApp')
             {
                 if (typeof(track) === "string")
                 {
-                    var track = models.Track.fromURI(track);
+                    track = models.Track.fromURI(track);
                     track.startTime = startTime;
                     track.endTime = endTime;
                 }

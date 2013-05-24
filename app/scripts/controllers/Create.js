@@ -8,7 +8,6 @@ angular.module('SpinningApp')
         $scope.Spotify = Spotify;
 
         $scope.sessionId = $routeParams.id;
-        console.log($scope.sessionId);
 
         if (!$scope.sessionId)
         {
@@ -28,12 +27,11 @@ angular.module('SpinningApp')
             })();
         }
 
-        $scope.query = 'James Blake';
+        $scope.query = '';
         $scope.tracks = [];
 
         $scope.doSearch = function()
         {
-            $scope.tracks = [];
             Spotify.search($scope.query, function(result)
             {
                 if (result.tracks.length === 0) return;

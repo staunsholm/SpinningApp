@@ -1,13 +1,20 @@
-<spin-menu></spin-menu>
+<div class="bike"></div>
 
-<h1>Spinning</h1>
+<div class="sessions prettyprint">
+    <ul style="width:{{sessions.length*210}}px">
+        <li ng-repeat="session in sessions | filter:favorite=true"
+            ng-click="play(session.id)">
+            <div style="background-image:url({{session.image}})">
+                <h3>{{session.title}}</h3>
 
-<h2>Suggested Sessions</h2>
+                <p>{{session.length | date:'hh:mm'}}</p>
+            </div>
+        </li>
+    </ul>
+</div>
 
-<table>
-    <tr ng-repeat="session in sessions | filter:favorite=true"
-        ng-click="play(session.id)">
-        <td>{{session.title}}</td>
-        <td>{{session.length | date:'hh:mm'}}</td>
-    </tr>
-</table>
+<a class="allSessions" ng-click="navigateTo('/find')">all...</a>
+
+<div class="create">
+    <button ng-click="navigateTo('/create')">Create New</button>
+</div>
