@@ -32,6 +32,10 @@ input[type=search]::-webkit-input-placeholder {
     color: #888;
 }
 
+time {
+    display: block;
+}
+
 .bgImage {
     background: url('../img/MountainBike-490.jpg') 0 0 no-repeat;
     background-size: cover;
@@ -70,108 +74,14 @@ input[type=search]::-webkit-input-placeholder {
     animation-duration: 800ms;
     -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
-    -webkit-animation-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
 }
 
 .container {
-    margin: 10px;
+    padding: 10px;
     position: relative;
     z-index: 1;
-}
-
-.track {
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: relative;
-    margin: 0 10px 5px 0;
-    display: inline-block;
-    color: #fff;
-    text-shadow: 0px 0px 2px #000;
-    width: 100%;
-
-    >div {
-        background-color: rgba(0, 0, 0, .5);
-        padding: 10px;
-    }
-
-    .controls {
-
-    }
-
-    label {
-        width: 15%;
-        display: inline-block;
-    }
-    input[type=range] {
-        width: 65%;
-    }
-
-    h3 {
-        margin: 0;
-    }
-
-    h4 {
-        margin: 0;
-    }
-
-    .addToSession,
-    .removeFromSession {
-        position: absolute;
-        top: 30px;
-        right: 10px;
-    }
-
-    .startTime, .endTime {
-        display: none;
-    }
-}
-
-.menu {
-    button {
-        color: #333;
-        background-color: rgba(255, 255, 255, .5);
-        padding: 10px 20px;
-    }
-    button.current {
-        background-color: rgba(255, 255, 255, 0.9);
-    }
-}
-
-.createFlow {
-    button {
-        color: #333;
-        background-color: rgba(255, 255, 0, .5);
-        padding: 20px 40px;
-    }
-    button.current {
-        background-color: rgba(255, 255, 0, .9);
-    }
-}
-
-.search {
-    height: 50%;
-
-    form {
-        input[type=search] {
-            background-color: rgba(255, 255, 255, .9);
-            color: #333;
-            padding: 20px 4px;
-            font-size: 120%;
-            width: 100%;
-        }
-        label {
-            display: none;
-        }
-    }
-
-    .searchResult {
-        background-color: rgba(200, 200, 200, .5);
-        color: #333;
-        padding: 5px;
-        overflow-x: hidden;
-        height: 80%;
-    }
 }
 
 .session {
@@ -229,54 +139,28 @@ input[type=search]::-webkit-input-placeholder {
     display: none;
 }
 
-.sessions {
-    width: 100%;
-    height: 218px;
-    overflow: auto;
-
-    ul {
-        list-style-type: none;
-    }
-
-    li {
-        float: left;
-        padding: 10px;
-        margin: 10px 10px 0 0;
-        width: 200px;
-        height: 200px;
-        background-color: rgba(0, 0, 0, .6);
-        cursor: pointer;
-        -webkit-transition: background-color 0.3s;
-        transition: background-color 0.3s;
-    }
-    li:hover {
-        background-color: rgba(0,0,0,1);
-    }
-
-    &.all {
-        height: 100%;
-    }
-}
-
-.allSessions {
-    display: block;
-    float: right;
-    padding: 5px 0 5px 10px;
-    text-decoration: underline;
-    cursor: pointer;
-    text-shadow: 0 0 3px #000;
-    font-size: 110%;
-}
-
 button {
     border: 0;
     background: rgba(255,255,255,.7);
+    -webkit-transition: background-color 0.3s;
+    transition: background-color 0.3s;
     color: #000;
     font-size: 120%;
     font-weight: bold;
     padding: 10px 30px;
     cursor: pointer;
     text-transform: uppercase;
+
+    &:hover {
+        background: #fff;
+    }
+}
+
+.allSessions {
+    display: block;
+    float: right;
+    text-transform: none;
+    font-weight: normal;
 }
 
 .create {
@@ -286,8 +170,16 @@ button {
     margin: 50px 0;
 }
 
-.filterInput {
-    display: block;
-    width: 50%;
-    margin: 0 auto;
+.goBack {
+    background: none;
+    font-size: 300%;
+    padding: 0;
+    color: rgba(255,255,255,.8);
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+
+    &:hover {
+        color: rgb(255,255,255);
+        background: none;
+    }
 }

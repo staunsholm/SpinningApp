@@ -1,9 +1,8 @@
 <nav>
-    <button class="goBack" ng-click="history.go(-1)"></button>
-    <div class="bike small"></div>
+    <button class="goBack" ng-click="navigateTo('/')">&#x2b05;</button>
 </nav>
 
-<input class="filterInput" type="search" placeholder="Filter" ng-model="filterString">
+<input class="filterInput" type="text" placeholder="Filter" ng-model="filterString">
 
 <div class="sessions all">
     <ul>

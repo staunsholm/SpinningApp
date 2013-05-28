@@ -1,7 +1,47 @@
-<spin-menu></spin-menu>
+<div class="play">
 
-<h2>{{session.title}}</h2>
+    <time class="countdown">{{session.length | date:'hh:mm:ss'}}</time>
 
-<div>{{session.length}}</div>
+    <button ng-click="rot()">Rot</button>
 
-<button ng-click="startSession()">Start</button>
+    <ul class="sessionItems">
+        <li class="current">
+            Stand up and sprint
+            <time>01:00</time>
+        </li>
+        <li>
+            1
+            <time>01:30</time>
+        </li>
+        <li>
+            2
+            <time>01:30</time>
+        </li>
+        <li>
+            3
+            <time>01:30</time>
+        </li>
+        <li>
+            4
+            <time>01:30</time>
+        </li>
+        <li class="previous">
+            5
+            <time>01:30</time>
+        </li>
+    </ul>
+
+    <div class="bike"></div>
+
+    <button ng-click="startSession()" class="startButton">Start</button>
+
+    <div class="currentSong">
+        <h4>U2</h4>
+        <h5>Elevation</h5>
+    </div>
+
+    <div class="controls">
+        <button class="pause">||</button>
+        <button class="fullscreen">&square;</button>
+    </div>
+</div>

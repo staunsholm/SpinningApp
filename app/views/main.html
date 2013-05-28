@@ -2,7 +2,8 @@
 
 <div class="sessions">
     <ul style="width:{{sessions.length*210}}px">
-        <li ng-repeat="session in sessions | filter:favorite=true"
+        <li class="fadeContent"
+            ng-repeat="session in sessions | filter:favorite=true"
             ng-click="play(session.id)">
             <div style="background-image:url({{session.image}})">
                 <h3>{{session.title}}</h3>
@@ -13,7 +14,7 @@
     </ul>
 </div>
 
-<a class="allSessions" ng-click="navigateTo('/find')">all...</a>
+<button class="allSessions" ng-click="navigateTo('/find')">More...</button>
 
 <div class="create">
     <button ng-click="navigateTo('/create')">Create New</button>

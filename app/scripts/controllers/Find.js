@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('SpinningApp')
-    .controller('FindCtrl', function ($scope, $location, Sessions)
+    .controller('FindCtrl', function ($scope, $location, $timeout, Sessions)
     {
         Utils.moveBackground(1);
 
@@ -9,7 +9,14 @@ angular.module('SpinningApp')
         {
             $location.path('/play/' + id);
         }
+
+        $timeout(function() {
+            document.querySelector('body').onkeydown = function ()
+            {
+                document.querySelector('input').focus();
+            };
+        }, 0);
     })
 
-    .$inject = ['$location','Sessions'];
+    .$inject = ['$location', '$timeout', 'Sessions'];
 
